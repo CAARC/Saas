@@ -500,6 +500,15 @@ body{overflow:hidden}
   .panel-head{gap:10px;align-items:flex-start;flex-direction:column}
   .tb-btn.textual,.tb-avatar{padding:0 10px}
 }
+
+.config-timezone-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.config-timezone-row select{flex:1;min-width:260px}
+.config-time-preview{margin-top:8px;padding:10px 12px;border:1px dashed var(--border2);border-radius:10px;background:var(--s2);font-size:12.5px;color:var(--text2)}
+.config-field-help{margin-top:6px;font-size:11px;color:var(--muted)}
+.config-pref-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:16px}
+.config-save-status{font-size:12px;color:var(--muted)}
+.table-note{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.45}
+
 @media (max-width: 640px){
   .topbar{gap:10px}
   .tb-title{font-size:17px;min-width:0}
@@ -1174,6 +1183,173 @@ body,.main{background:#f4f7fb !important;color:#223247 !important}
   .svc-day-cell.expanded{grid-column:span 7;min-height:unset}
   .svc-expand-item{flex-direction:column;align-items:flex-start}
   .svc-expand-meta{justify-content:flex-start}
+}
+
+
+
+/* ===== PDV BOX FIX ===== */
+#page-pdv{height:auto}
+.pdv-wrap{
+  display:grid !important;
+  grid-template-columns:minmax(0,1.35fr) minmax(340px,.9fr) !important;
+  gap:18px !important;
+  min-height:calc(100vh - 170px);
+  height:auto !important;
+  align-items:start;
+}
+.pdv-left,.cart-panel{min-height:0}
+.pdv-toolbar{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr);
+  gap:12px;
+  padding:16px !important;
+}
+.pdv-toolbar input{min-height:42px}
+.pdv-cats{
+  display:flex;
+  flex-wrap:wrap;
+  overflow:visible;
+  padding-bottom:0;
+}
+.pdv-toolbar-meta{
+  padding:0 16px 16px !important;
+  border-bottom:1px solid var(--border);
+  background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,0));
+}
+.pdv-grid{
+  padding:16px !important;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr)) !important;
+  gap:14px !important;
+}
+.pcard{
+  min-height:220px;
+  padding:16px !important;
+  border-radius:16px !important;
+  background:linear-gradient(180deg,#ffffff 0%, #f8fbfd 100%) !important;
+  display:flex !important;
+  flex-direction:column !important;
+  gap:10px;
+}
+.pcard-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.pcard-cat{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:4px 10px;border-radius:999px;
+  background:#eef7f2;color:#1f8b5b;font-size:11px;font-weight:700;
+  border:1px solid #cdebd9;
+}
+.pcard-stock-pill{
+  font-size:11px;font-weight:700;color:#475569;
+  background:#f8fafc;border:1px solid #dbe4ee;border-radius:999px;
+  padding:4px 9px;white-space:nowrap;
+}
+.pcard-name{
+  min-height:auto !important;
+  font-size:14px !important;
+  line-height:1.45 !important;
+  margin:0 !important;
+}
+.pcard-meta{display:flex;flex-wrap:wrap;gap:6px}
+.pcard-code{
+  font-size:11px;color:#64748b;background:#f8fafc;border:1px solid #dbe4ee;
+  border-radius:8px;padding:4px 8px;
+}
+.pcard-price-row{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:10px}
+.pcard-price-box{display:flex;flex-direction:column;gap:2px}
+.pcard-price-label{
+  font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:700;
+}
+.pcard-price{
+  font-size:22px !important;
+  font-weight:800 !important;
+  line-height:1 !important;
+  margin:0 !important;
+  color:#1f8b5b !important;
+}
+.pcard-stock{font-size:12px !important;margin:0 !important;color:#64748b !important;opacity:1 !important}
+.pcard-footer{
+  display:grid !important;
+  grid-template-columns:72px 1fr;
+  gap:10px;
+  padding-top:10px;
+  border-top:1px solid #ebf1f5;
+}
+.pcard-qty,.pcard-add{min-height:40px}
+.pcard-qty{
+  width:100% !important;
+  text-align:center;
+  font-weight:700;
+  background:#fff !important;
+}
+.pcard-add{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:12px;letter-spacing:.01em;
+}
+.cart-panel{
+  position:sticky;
+  top:12px;
+  min-height:calc(100vh - 190px);
+}
+.cart-hd,.cart-ft{
+  background:linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
+}
+.cart-body{padding:14px !important}
+.cart-item{
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) auto;
+  grid-template-areas:
+    "info total"
+    "qty actions";
+  align-items:center;
+  gap:10px 12px;
+  padding:12px !important;
+}
+.ci-info{grid-area:info}
+.ci-total{grid-area:total;min-width:80px;align-self:start}
+.ci-qty-manual{grid-area:qty}
+.ci-del{grid-area:actions;justify-self:end}
+.ci-name{white-space:normal !important}
+.ci-qty-manual{flex-wrap:nowrap}
+.qty-input{height:32px}
+.cart-lines{
+  padding:12px;
+  background:#f8fafc;
+  border:1px solid #dbe4ee;
+  border-radius:14px;
+}
+.discount-row{
+  display:grid !important;
+  grid-template-columns:auto minmax(0,1fr) auto minmax(0,1fr);
+  gap:8px;
+  align-items:center;
+}
+@media (max-width: 1220px){
+  .pdv-wrap{
+    grid-template-columns:1fr !important;
+    min-height:auto;
+  }
+  .cart-panel{
+    position:relative;
+    top:auto;
+    min-height:unset;
+  }
+}
+@media (max-width: 760px){
+  .pdv-grid{grid-template-columns:1fr !important}
+  .discount-row{
+    grid-template-columns:1fr 1fr !important;
+  }
+  .pcard-footer{
+    grid-template-columns:1fr !important;
+  }
+  .cart-item{
+    grid-template-columns:1fr !important;
+    grid-template-areas:
+      "info"
+      "qty"
+      "total"
+      "actions";
+  }
+  .ci-total,.ci-del{justify-self:start}
 }
 
 
@@ -2202,17 +2378,59 @@ body,.main{background:#f4f7fb !important;color:#223247 !important}
         </div>
 
         <div class="panel">
-          <div class="panel-head"><div class="panel-title"> Preferências</div></div>
-          <div class="panel-body">
-            <div class="fields-2" style="gap:14px">
-              <div class="field"><label>Moeda</label><select><option>BRL – Real</option></select></div>
-              <div class="field"><label>Fuso Horário</label><select><option>America/Sao_Paulo</option></select></div>
-              <div class="field"><label>Estoque Mínimo Padrão</label><input type="number" value="5"></div>
-              <div class="field"><label>Margem Mínima (%)</label><input type="number" value="30"></div>
-              <div class="field"><label>Impressão automática NF</label><select><option>Não</option><option>Sim</option></select></div>
-              <div class="field"><label>Backup automático</label><select><option>Diário</option><option>Semanal</option></select></div>
+          <div class="panel-head">
+            <div>
+              <div class="panel-title">Preferências</div>
+              <div class="table-note">Configure moeda, fuso horário global e automações básicas do sistema.</div>
             </div>
-            <button class="btn btn-primary" style="margin-top:16px" onclick="toast('Preferências salvas!','success')">Salvar</button>
+            <div class="sec-actions" style="gap:8px">
+              <button class="btn btn-ghost btn-sm" type="button" id="cfg-refresh-timezones" onclick="loadWorldTimezoneOptions(true)">Atualizar fusos</button>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="fields-2 config-pref-grid" style="gap:14px">
+              <div class="field">
+                <label>Moeda</label>
+                <select id="cfg-currency">
+                  <option value="BRL">BRL – Real</option>
+                  <option value="USD">USD – Dólar</option>
+                  <option value="EUR">EUR – Euro</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Fuso Horário do Sistema</label>
+                <div class="config-timezone-row">
+                  <select id="cfg-timezone" onchange="updateTimezonePreview()">
+                    <option value="America/Sao_Paulo">Carregando fusos...</option>
+                  </select>
+                  <button class="btn btn-ghost btn-sm" type="button" onclick="detectLocalTimezone()">Usar local</button>
+                </div>
+                <div class="config-time-preview" id="cfg-timezone-preview">Buscando horário atual do fuso selecionado...</div>
+                <div class="config-field-help">Fonte principal: API mundial de fusos. Em caso de falha, o sistema usa a lista interna do navegador.</div>
+              </div>
+              <div class="field"><label>Estoque Mínimo Padrão</label><input type="number" id="cfg-minstock" min="0" step="1"></div>
+              <div class="field"><label>Margem Mínima (%)</label><input type="number" id="cfg-minmargin" min="0" step="1"></div>
+              <div class="field">
+                <label>Impressão automática NF</label>
+                <select id="cfg-auto-print">
+                  <option value="nao">Não</option>
+                  <option value="sim">Sim</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Backup automático</label>
+                <select id="cfg-auto-backup">
+                  <option value="diario">Diário</option>
+                  <option value="semanal">Semanal</option>
+                  <option value="mensal">Mensal</option>
+                  <option value="nao">Desativado</option>
+                </select>
+              </div>
+            </div>
+            <div class="config-pref-actions">
+              <button class="btn btn-primary" type="button" onclick="saveConfigPreferences()">Salvar preferências</button>
+              <span class="config-save-status" id="cfg-save-status">As alterações ficam salvas no navegador.</span>
+            </div>
           </div>
         </div>
         <div class="panel">
@@ -2636,6 +2854,7 @@ let DB = {
     {id:2,name:'PetDistrib. Ltda',contact:'(11)9999-0002',email:'pd@dist.com'},
     {id:3,name:'Merial Brasil',contact:'(11)9999-0003',email:'merial@br.com'},
   ],
+  settings:{currency:'BRL',timezone:'America/Sao_Paulo',minStockDefault:5,minMargin:30,autoPrintNF:'nao',autoBackup:'diario'},
   nextId:{product:11,client:4,animal:3,sale:1,movement:3,appointment:3,lanc:3,serviceType:6,compraRec:3,subscription:2}
 };
 
@@ -2895,12 +3114,25 @@ function renderPDV(){
   grid.innerHTML=filtered.length?filtered.map(p=>`
     <div class="pcard ${p.stock===0?'out-stock':''}" onclick="${p.stock>0?`addCart(${p.id})`:''}">
       ${p.stock===0?'<div class="pcard-badge">Sem estoque</div>':''}
+      <div class="pcard-top">
+        <span class="pcard-cat">${p.cat}</span>
+        <span class="pcard-stock-pill">${p.stock} ${p.unit}</span>
+      </div>
       <div class="pcard-name">${p.name}</div>
-      <div class="pcard-price">${fmt(p.price)}</div>
-      <div class="pcard-stock">Estoque: ${p.stock} ${p.unit} · ${p.cat}</div>
+      <div class="pcard-meta">
+        <span class="pcard-code">Cód. ${p.code}</span>
+        ${p.ean?`<span class="pcard-code">EAN ${p.ean}</span>`:''}
+      </div>
+      <div class="pcard-price-row">
+        <div class="pcard-price-box">
+          <span class="pcard-price-label">Preço</span>
+          <div class="pcard-price">${fmt(p.price)}</div>
+        </div>
+      </div>
+      <div class="pcard-stock">Disponível: ${p.stock} ${p.unit} · ${p.cat}</div>
       <div class="pcard-footer" onclick="event.stopPropagation()">
         <input class="pcard-qty" type="number" min="1" max="${Math.max(p.stock,1)}" value="1" id="pcard-qty-${p.id}" ${p.stock===0?'disabled':''}>
-        <button class="pcard-add" type="button" onclick="addCart(${p.id}, getPdvCardQty(${p.id}))">Adicionar</button>
+        <button class="pcard-add" type="button" onclick="addCart(${p.id}, getPdvCardQty(${p.id}))">Adicionar ao carrinho</button>
       </div>
     </div>`).join(''):`<div class="empty-state" style="grid-column:1/-1"><p>Nenhum produto encontrado</p><p class="help-muted">Tente mudar a categoria ou o termo da busca.</p></div>`;
   const sel=document.getElementById('cart-client');
@@ -3329,6 +3561,7 @@ function saveAnimal(){
 function delAnimal(id){if(!confirm('Excluir animal?'))return;DB.animals=DB.animals.filter(a=>a.id!==id);renderAnimais();renderClientes();saveDB();toast('Animal excluído','info');}
 
 // ━━━━━━━━━━━━━━━━━━━━ SERVIÇOS ━━━━━━━━━━━━━━━━━━━━
+let editAppointmentId=null;
 const serviceCalendarState={selectedDate:todayISO(),month:todayISO().slice(0,7)+'-01',status:'todos',expandedDate:todayISO(),calendarOpen:true};
 
 function normalizeServiceData(){
@@ -3485,8 +3718,9 @@ function renderServicos(){
       <td style="color:var(--g2);font-weight:700">${fmt(a.value||0)}</td>
       <td><span class="badge ${statusBadge[a.status]||'bg-gray'}">${a.status||'aguardando'}</span></td>
       <td><div class="actions">
+        <button class="btn btn-ghost btn-sm" type="button" onclick="editAgendamento(${a.id})">Editar</button>
         <button class="btn btn-success btn-sm" type="button" onclick="updateApptStatus(${a.id},'concluido')">Concluir</button>
-        <button class="btn btn-danger btn-sm" type="button" onclick="updateApptStatus(${a.id},'cancelado')">Cancelar</button>
+        <button class="btn btn-danger btn-sm" type="button" onclick="deleteAgendamento(${a.id})">Excluir</button>
       </div></td>
     </tr>`).join(''):`<tr><td colspan="8" style="text-align:center;padding:24px;color:var(--muted);opacity:.7">Nenhum agendamento para ${formatServiceDayLabel(selectedDate,{day:'2-digit',month:'2-digit',year:'numeric'})}.</td></tr>`;
   }
@@ -3558,23 +3792,33 @@ function updateApptStatus(id,status){
   saveDB();
   toast(`Agendamento ${status}!`,'success');
 }
-function openAgendModal(prefDate){
+function openAgendModal(prefDate, appointmentId=null){
   normalizeServiceData();
   if(!DB.clients.length){toast('Cadastre um cliente antes de criar um agendamento.','error');return;}
   if(!DB.serviceTypes.length){toast('Cadastre ao menos um tipo de serviço antes de agendar.','error');return;}
+  editAppointmentId=appointmentId;
+  const appointment=appointmentId?DB.appointments.find(item=>Number(item.id)===Number(appointmentId)):null;
   const csel=document.getElementById('ag-cli');
   if(!csel) return;
   csel.innerHTML=DB.clients.map(c=>`<option value="${c.id}">${c.name}</option>`).join('');
   const svcSel=document.getElementById('ag-svc');
   svcSel.innerHTML=DB.serviceTypes.map(s=>`<option value="${s.name}" data-val="${s.price}">${s.name} – ${fmt(s.price||0)}</option>`).join('');
   svcSel.onchange=function(){const opt=this.options[this.selectedIndex];document.getElementById('ag-val').value=(opt&&opt.dataset&&opt.dataset.val)||'';};
-  const safeDate=isValidISODate(prefDate)?prefDate:getSelectedServiceDate();
+  const safeDate=isValidISODate(prefDate)?prefDate:(appointment?.date||getSelectedServiceDate());
   document.getElementById('ag-date').value=safeDate;
-  if(svcSel.options[0]) document.getElementById('ag-val').value=(svcSel.options[0].dataset && svcSel.options[0].dataset.val)||'';
-  loadAnimaisByClient();
+  document.getElementById('ag-time').value=appointment?.time||'';
+  document.getElementById('ag-prof').value=appointment?.prof||'';
+  document.getElementById('ag-obs').value=appointment?.obs||'';
+  csel.value=String(appointment?.clientId || DB.clients[0]?.id || '');
+  loadAnimaisByClient(appointment?.animalId || '');
+  if(appointment?.service){svcSel.value=appointment.service;}
+  const selectedOption=svcSel.options[svcSel.selectedIndex] || svcSel.options[0];
+  document.getElementById('ag-val').value=appointment?.value ?? ((selectedOption&&selectedOption.dataset&&selectedOption.dataset.val)||'');
+  const title=document.querySelector('#m-agend .modal-hd h3');
+  if(title) title.textContent=appointment?'Editar agendamento':'Novo agendamento';
   openModal('m-agend');
 }
-function loadAnimaisByClient(){
+function loadAnimaisByClient(selectedAnimalId=''){
   normalizeServiceData();
   const clientEl=document.getElementById('ag-cli');
   const aSel=document.getElementById('ag-animal');
@@ -3582,6 +3826,7 @@ function loadAnimaisByClient(){
   const cid=parseInt(clientEl.value);
   const anims=DB.animals.filter(a=>a.owner===cid);
   aSel.innerHTML=anims.length?anims.map(a=>`<option value="${a.id}">${a.name} (${a.species||'Pet'})</option>`).join(''):'<option value="">-- Nenhum pet cadastrado --</option>';
+  if(selectedAnimalId && anims.some(a=>String(a.id)===String(selectedAnimalId))) aSel.value=String(selectedAnimalId);
 }
 function saveAgend(){
   normalizeServiceData();
@@ -3594,12 +3839,35 @@ function saveAgend(){
   const c=DB.clients.find(x=>x.id===cid);
   if(!c){toast('Selecione um cliente válido.','error');return;}
   const a=DB.animals.find(x=>x.id===aid);
-  DB.appointments.push({id:DB.nextId.appointment++,date:dateValue,time:timeValue,animal:a?.name||'—',client:c?.name||'—',clientId:cid,animalId:aid||null,service:document.getElementById('ag-svc').value,prof:document.getElementById('ag-prof').value,value:parseFloat(document.getElementById('ag-val').value)||0,status:'aguardando',obs:document.getElementById('ag-obs').value});
+  const payload={date:dateValue,time:timeValue,animal:a?.name||'—',client:c?.name||'—',clientId:cid,animalId:aid||null,service:document.getElementById('ag-svc').value,prof:document.getElementById('ag-prof').value,value:parseFloat(document.getElementById('ag-val').value)||0,status:'aguardando',obs:document.getElementById('ag-obs').value};
+  if(editAppointmentId){
+    const current=DB.appointments.find(item=>Number(item.id)===Number(editAppointmentId));
+    if(current){
+      Object.assign(current,payload,{status:current.status||'aguardando'});
+      toast('Agendamento atualizado!','success');
+    }
+  }else{
+    DB.appointments.push({id:DB.nextId.appointment++,...payload});
+    toast('Agendamento criado!','success');
+  }
+  editAppointmentId=null;
   serviceCalendarState.selectedDate=dateValue;
   serviceCalendarState.month=dateValue.slice(0,7)+'-01';
   serviceCalendarState.expandedDate=dateValue;
   serviceCalendarState.calendarOpen=true;
-  closeModal('m-agend');renderServicos();saveDB();toast('Agendamento criado!','success');
+  closeModal('m-agend');renderServicos();saveDB();
+}
+function editAgendamento(id){openAgendModal('', id);}
+function deleteAgendamento(id){
+  const item=DB.appointments.find(a=>Number(a.id)===Number(id));
+  if(!item) return;
+  if(!confirm(`Excluir o agendamento de ${item.animal||'pet'} às ${item.time||'--:--'}?`)) return;
+  DB.appointments=DB.appointments.filter(a=>Number(a.id)!==Number(id));
+  if(editAppointmentId===id) editAppointmentId=null;
+  if(serviceCalendarState.expandedDate===item.date && !getAppointmentsByDate(item.date).length){serviceCalendarState.expandedDate=null;}
+  saveDB();
+  renderServicos();
+  toast('Agendamento excluído.','info');
 }
 function openSvcTipoModal(id){
   normalizeServiceData();
@@ -3746,7 +4014,22 @@ function saveLanc(){
 }
 
 // ━━━━━━━━━━━━━━━━━━━━ COMPRAS ━━━━━━━━━━━━━━━━━━━━
-function todayISO(){const d=new Date();d.setHours(0,0,0,0);d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10);}
+function getConfiguredTimezone(){
+  return (DB && DB.settings && DB.settings.timezone) || 'America/Sao_Paulo';
+}
+function todayISO(){
+  try{
+    const tz=getConfiguredTimezone();
+    const parts=new Intl.DateTimeFormat('en-CA',{timeZone:tz,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(new Date());
+    const pick=type=>parts.find(p=>p.type===type)?.value;
+    const y=pick('year'), m=pick('month'), d=pick('day');
+    if(y&&m&&d) return `${y}-${m}-${d}`;
+  }catch(e){}
+  const d=new Date();
+  d.setHours(0,0,0,0);
+  d.setMinutes(d.getMinutes()-d.getTimezoneOffset());
+  return d.toISOString().slice(0,10);
+}
 function addDaysISO(base,days){const d=new Date((base||todayISO())+'T00:00:00');d.setDate(d.getDate()+days);d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10);}
 function addRecurringFrequency(base,freq){
   const d=new Date((base||todayISO())+'T00:00:00');
@@ -4148,12 +4431,144 @@ function renderRelatorios(){
 }
 
 // ━━━━━━━━━━━━━━━━━━━━ CONFIG ━━━━━━━━━━━━━━━━━━━━
+const SETTINGS_DEFAULTS={currency:'BRL',timezone:'America/Sao_Paulo',minStockDefault:5,minMargin:30,autoPrintNF:'nao',autoBackup:'diario'};
+let WORLD_TIMEZONES_CACHE=[];
+function ensureAppSettings(){
+  if(!DB.settings || typeof DB.settings!=='object') DB.settings={};
+  DB.settings={...SETTINGS_DEFAULTS,...DB.settings};
+  return DB.settings;
+}
+function getTimezoneLabel(zone){
+  const custom={
+    'America/Sao_Paulo':'Brasil · Brasília',
+    'America/Manaus':'Brasil · Manaus',
+    'America/Rio_Branco':'Brasil · Acre',
+    'America/Noronha':'Brasil · Fernando de Noronha'
+  };
+  return custom[zone] || zone.replaceAll('_',' ');
+}
+function buildFallbackTimezoneList(){
+  const base=(typeof Intl!=='undefined' && Intl.supportedValuesOf)?Intl.supportedValuesOf('timeZone'):[];
+  const curated=['America/Sao_Paulo','America/Manaus','America/Rio_Branco','America/Noronha','America/New_York','America/Mexico_City','Europe/London','Europe/Madrid','Europe/Berlin','Europe/Paris','Asia/Tokyo','Asia/Dubai','Asia/Singapore','Australia/Sydney','Africa/Johannesburg'];
+  const merged=[...new Set([...curated,...base])].filter(Boolean);
+  return merged.sort((a,b)=>getTimezoneLabel(a).localeCompare(getTimezoneLabel(b),'pt-BR'));
+}
+function fillTimezoneSelect(list){
+  const select=document.getElementById('cfg-timezone');
+  if(!select) return;
+  const settings=ensureAppSettings();
+  const options=(Array.isArray(list)&&list.length?list:buildFallbackTimezoneList());
+  WORLD_TIMEZONES_CACHE=options.slice();
+  select.innerHTML=options.map(zone=>`<option value="${zone}">${getTimezoneLabel(zone)} · ${zone}</option>`).join('');
+  if(options.includes(settings.timezone)) select.value=settings.timezone;
+  else if(options.includes('America/Sao_Paulo')) select.value='America/Sao_Paulo';
+  else select.value=options[0]||'America/Sao_Paulo';
+}
+async function loadWorldTimezoneOptions(force=false){
+  const btn=document.getElementById('cfg-refresh-timezones');
+  const preview=document.getElementById('cfg-timezone-preview');
+  if(btn){btn.disabled=true;btn.textContent='Carregando...';}
+  try{
+    if(force || !WORLD_TIMEZONES_CACHE.length){
+      const response=await fetch('https://worldtimeapi.org/api/timezone',{headers:{'Accept':'application/json'}});
+      if(!response.ok) throw new Error('timezone-api-failed');
+      const data=await response.json();
+      if(!Array.isArray(data) || !data.length) throw new Error('timezone-api-empty');
+      fillTimezoneSelect(data);
+      if(preview) preview.textContent='Lista mundial carregada com sucesso. Buscando horário atual do fuso selecionado...';
+    }else{
+      fillTimezoneSelect(WORLD_TIMEZONES_CACHE);
+    }
+  }catch(e){
+    fillTimezoneSelect(buildFallbackTimezoneList());
+    if(preview) preview.textContent='API externa indisponível no momento. A lista local do navegador foi usada como fallback.';
+  }finally{
+    if(btn){btn.disabled=false;btn.textContent='Atualizar fusos';}
+    updateTimezonePreview();
+  }
+}
+function hydrateConfigSettingsPanel(){
+  const settings=ensureAppSettings();
+  const map={
+    'cfg-currency':settings.currency,
+    'cfg-minstock':settings.minStockDefault,
+    'cfg-minmargin':settings.minMargin,
+    'cfg-auto-print':settings.autoPrintNF,
+    'cfg-auto-backup':settings.autoBackup
+  };
+  Object.entries(map).forEach(([id,val])=>{const el=document.getElementById(id);if(el) el.value=String(val ?? '');});
+  const status=document.getElementById('cfg-save-status');
+  if(status) status.textContent='As alterações ficam salvas no navegador.';
+  if(WORLD_TIMEZONES_CACHE.length) fillTimezoneSelect(WORLD_TIMEZONES_CACHE);
+  else fillTimezoneSelect(buildFallbackTimezoneList());
+  const tzEl=document.getElementById('cfg-timezone');
+  if(tzEl) tzEl.value=settings.timezone;
+  updateTimezonePreview();
+}
+function detectLocalTimezone(){
+  const select=document.getElementById('cfg-timezone');
+  try{
+    const local=Intl.DateTimeFormat().resolvedOptions().timeZone;
+    if(local && select){
+      if(!WORLD_TIMEZONES_CACHE.includes(local)){WORLD_TIMEZONES_CACHE=[...new Set([local,...WORLD_TIMEZONES_CACHE])];fillTimezoneSelect(WORLD_TIMEZONES_CACHE);}
+      select.value=local;
+      updateTimezonePreview();
+      toast('Fuso local aplicado no formulário.','success');
+    }
+  }catch(e){toast('Não foi possível detectar o fuso local.','warn');}
+}
+async function updateTimezonePreview(){
+  const select=document.getElementById('cfg-timezone');
+  const preview=document.getElementById('cfg-timezone-preview');
+  if(!select || !preview) return;
+  const zone=select.value || 'America/Sao_Paulo';
+  preview.textContent='Buscando horário atual...';
+  try{
+    const response=await fetch(`https://worldtimeapi.org/api/timezone/${zone}`);
+    if(!response.ok) throw new Error('preview-api');
+    const data=await response.json();
+    const date=data?.datetime?new Date(data.datetime):new Date();
+    const formatted=new Intl.DateTimeFormat('pt-BR',{dateStyle:'full',timeStyle:'short',timeZone:zone}).format(date);
+    preview.textContent=`Horário atual em ${getTimezoneLabel(zone)}: ${formatted}`;
+  }catch(e){
+    try{
+      const formatted=new Intl.DateTimeFormat('pt-BR',{dateStyle:'full',timeStyle:'short',timeZone:zone}).format(new Date());
+      preview.textContent=`Horário atual em ${getTimezoneLabel(zone)}: ${formatted} (fallback local)`;
+    }catch(err){
+      preview.textContent=`Fuso selecionado: ${zone}`;
+    }
+  }
+}
+function saveConfigPreferences(){
+  const settings=ensureAppSettings();
+  const nextSettings={
+    currency:(document.getElementById('cfg-currency')||{}).value || 'BRL',
+    timezone:(document.getElementById('cfg-timezone')||{}).value || 'America/Sao_Paulo',
+    minStockDefault:Math.max(0,parseInt((document.getElementById('cfg-minstock')||{}).value)||0),
+    minMargin:Math.max(0,parseFloat((document.getElementById('cfg-minmargin')||{}).value)||0),
+    autoPrintNF:(document.getElementById('cfg-auto-print')||{}).value || 'nao',
+    autoBackup:(document.getElementById('cfg-auto-backup')||{}).value || 'diario'
+  };
+  DB.settings={...settings,...nextSettings};
+  const status=document.getElementById('cfg-save-status');
+  if(status) status.textContent=`Preferências salvas · ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
+  saveDB();
+  updateTimezonePreview();
+  renderServicos();
+  toast('Preferências salvas com sucesso!','success');
+}
 function renderConfig(){
-  document.getElementById('fornecedor-list').innerHTML=DB.fornecedores.map(f=>`
-    <div class="mini-item">
-      <div class="mi-info"><div class="mi-name">${f.name}</div><div class="mi-sub">${f.contact} · ${f.email}</div></div>
-    </div>`).join('');
+  ensureAppSettings();
+  const suppliers=document.getElementById('fornecedor-list');
+  if(suppliers){
+    suppliers.innerHTML=(DB.fornecedores||[]).map(f=>`
+      <div class="mini-item">
+        <div class="mi-info"><div class="mi-name">${f.name}</div><div class="mi-sub">${f.contact} · ${f.email}</div></div>
+      </div>`).join('');
+  }
   hydrateBrandSettingsPanel();
+  hydrateConfigSettingsPanel();
+  loadWorldTimezoneOptions();
 }
 
 // ━━━━━━━━━━━━━━━━━━━━ CSV EXPORT ━━━━━━━━━━━━━━━━━━━━
@@ -4803,13 +5218,14 @@ function bindNotifButton(){
   });
 }
 
-function saveDB(){renderTopNotifications();updateComprasBadge();try{localStorage.setItem('cbpets_db',JSON.stringify({products:DB.products,clients:DB.clients,animals:DB.animals,appointments:DB.appointments,serviceTypes:DB.serviceTypes,sales:DB.sales,movements:DB.movements,lancamentos:DB.lancamentos,compras:DB.compras,comprasRecorrentes:DB.comprasRecorrentes,clientSubscriptions:DB.clientSubscriptions,nextId:DB.nextId}));}catch(e){}}
+function saveDB(){ensureAppSettings();renderTopNotifications();updateComprasBadge();try{localStorage.setItem('cbpets_db',JSON.stringify({products:DB.products,clients:DB.clients,animals:DB.animals,appointments:DB.appointments,serviceTypes:DB.serviceTypes,sales:DB.sales,movements:DB.movements,lancamentos:DB.lancamentos,compras:DB.compras,comprasRecorrentes:DB.comprasRecorrentes,clientSubscriptions:DB.clientSubscriptions,settings:DB.settings,nextId:DB.nextId}));}catch(e){}}
 function loadDB(){
   try{
     const raw=localStorage.getItem('cbpets_db');
     if(!raw)return false;
     const saved=JSON.parse(raw);
     Object.assign(DB,saved);
+    ensureAppSettings();
     if(!Array.isArray(DB.comprasRecorrentes)) DB.comprasRecorrentes=[];
     DB.comprasRecorrentes = DB.comprasRecorrentes.map(item=>({
       clientId:item.clientId || DB.clients?.[0]?.id || '',
